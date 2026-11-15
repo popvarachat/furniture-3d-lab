@@ -1,3 +1,6 @@
+import {initAdMode} from './ad-mode.js';
+import {captureAdProduct} from './ad-capture.js';
+import './ad.css';
 import * as T from 'three';
 import {CSS2DObject} from 'three/examples/jsm/renderers/CSS2DRenderer.js';
 import {RoomEnvironment} from 'three/examples/jsm/environments/RoomEnvironment.js';
@@ -56,3 +59,5 @@ const report=[];for(const c of catalog){show(c.id);renderer.render(scene,camera)
 const b=new T.Box3().setFromObject(model.root);const size=b.getSize(new T.Vector3());report.push({id:c.id,groups:model.parts.length,meshes,finite,boundsMM:size.toArray().map(v=>Math.round(v*1000)),renderCalls:renderer.info.render.calls,dimensionMatch:Math.abs(size.x-c.w)<.001&&Math.abs(size.y-c.h)<.001&&Math.abs(size.z-c.d)<.001});}
 show(params.get('model'));const pre=document.createElement('pre');pre.id='audit-result';pre.hidden=true;pre.textContent=JSON.stringify({models:report,errors,pass:report.every(r=>r.finite&&r.meshes>0&&r.groups>=3&&r.renderCalls>0&&r.dimensionMatch)});document.body.append(pre);}
 if(params.has('exploded')){target=current=1;$('#explode').value=100;$('#pct').textContent='100%';}
+
+initAdMode({getProduct:()=>active,captureProduct:async id=>{if(active.id!==id)throw Error('Product selection changed');return captureAdProduct(model,scene.environment);}});

@@ -7,3 +7,6 @@ qa-*.png
 QA-REPORT.json
 prepare.cjs
 *.log
+
+qa-ad-files/
+qa-ad-run.cjs
