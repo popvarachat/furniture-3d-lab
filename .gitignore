@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.env.*
+private-inputs/
+qa-*.png
+QA-REPORT.json
+prepare.cjs
+*.log

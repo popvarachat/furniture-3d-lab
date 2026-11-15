@@ -1,0 +1,24 @@
+{
+  "id": "your-product",
+  "unit": "mm",
+  "reference": "local filename / page",
+  "dimensions": [
+    {
+      "name": "overall_width",
+      "value": 1000,
+      "status": "observed",
+      "source": "front view callout"
+    },
+    {
+      "name": "joint_hole_diameter",
+      "value": null,
+      "status": "unknown",
+      "source": null
+    }
+  ],
+  "assumptions": [
+    "Material colour is illustrative"
+  ],
+  "envelopeFitting": false,
+  "reviewedForManufacturing": false
+}

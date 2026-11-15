@@ -1,0 +1,22 @@
+{
+  "name": "furniture-3d-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "check": "node scripts/check-source.mjs"
+  },
+  "dependencies": {
+    "three": "0.169.0"
+  },
+  "devDependencies": {
+    "vite": "^6.4.1"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}
