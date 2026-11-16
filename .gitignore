@@ -14,3 +14,5 @@ qa-ad-run.cjs
 qa-bg-run.cjs
 
 qa-real-run.cjs
+
+qa-photo-example.cjs
