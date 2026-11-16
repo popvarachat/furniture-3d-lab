@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
     "check": "node scripts/check-source.mjs",
-    "test": "node --test scripts/ad-utils.test.mjs"
+    "test": "node --test scripts/ad-utils.test.mjs scripts/ad-scenes.test.mjs"
   },
   "dependencies": {
     "three": "0.169.0"

@@ -10,3 +10,5 @@ prepare.cjs
 
 qa-ad-files/
 qa-ad-run.cjs
+
+qa-bg-run.cjs

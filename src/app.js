@@ -60,4 +60,4 @@ const b=new T.Box3().setFromObject(model.root);const size=b.getSize(new T.Vector
 show(params.get('model'));const pre=document.createElement('pre');pre.id='audit-result';pre.hidden=true;pre.textContent=JSON.stringify({models:report,errors,pass:report.every(r=>r.finite&&r.meshes>0&&r.groups>=3&&r.renderCalls>0&&r.dimensionMatch)});document.body.append(pre);}
 if(params.has('exploded')){target=current=1;$('#explode').value=100;$('#pct').textContent='100%';}
 
-initAdMode({getProduct:()=>active,captureProduct:async id=>{if(active.id!==id)throw Error('Product selection changed');return captureAdProduct(model,scene.environment);}});
+initAdMode({getProduct:()=>active,captureProduct:async (id,sceneId)=>{if(active.id!==id)throw Error('Product selection changed');return captureAdProduct(model,scene.environment,sceneId);}});

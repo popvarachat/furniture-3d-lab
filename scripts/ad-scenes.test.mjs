@@ -1,0 +1,2 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {adScenes,recommendScene,resolveScene} from '../src/ad-scenes.js';
+test('scene IDs are unique and every product has a valid recommendation',()=>{assert.equal(new Set(adScenes.map(s=>s.id)).size,5);for(const id of ['round950','luggage','daybed','rect1100','side550','window'])assert(adScenes.some(s=>s.id===recommendScene(id)));assert.equal(recommendScene('window'),'window');assert.equal(recommendScene('luggage'),'hotel');assert.equal(resolveScene('unknown').id,'studio');});
