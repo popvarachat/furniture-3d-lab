@@ -1,9 +1,2 @@
 export const photoSamples={round950:'round950-photo-concept.jpg',luggage:'luggage-photo-concept.jpg',daybed:'daybed-photo-concept.jpg',rect1100:'rect1100-photo-concept.jpg',side550:'side550-photo-concept.jpg',window:'window-photo-concept.jpg'};
 export function photoUrl(id){const file=photoSamples[id];if(!file)throw Error('ไม่มีภาพตัวอย่างสำหรับสินค้านี้');return import.meta.env.BASE_URL+'samples/'+file;}
-export function initPhotoGallery({catalog,openExample}){
-const button=document.createElement('button');button.id='photo-gallery-open';button.className='ad-open';button.textContent='ภาพสมจริงครบ 6 รายการ';document.querySelector('header').append(button);
-const modal=document.createElement('dialog');modal.id='photo-gallery';const head=document.createElement('div');head.className='ad-header';head.innerHTML='<div><small>PHOTOREALISTIC CONCEPT GALLERY</small><h2>ภาพสมจริงครบ 6 รายการ</h2><p class="ad-note">ภาพ AI สำหรับแนวทางโฆษณา ยังไม่รับรองรายละเอียดและมิติทุกจุด</p></div>';const close=document.createElement('button');close.textContent='ปิด';close.onclick=()=>modal.close();head.append(close);modal.append(head);
-const grid=document.createElement('div');grid.className='photo-gallery-grid';
-catalog.forEach(p=>{const card=document.createElement('button');card.className='photo-card';card.dataset.product=p.id;const image=document.createElement('img');image.src=photoUrl(p.id);image.alt='ภาพสมจริงตัวอย่าง '+p.name;image.loading='lazy';const title=document.createElement('b');title.textContent=p.name;const dims=document.createElement('small');dims.textContent=p.dims;const action=document.createElement('span');action.textContent='ใช้ภาพนี้สร้างโฆษณา →';card.append(image,title,dims,action);card.onclick=()=>{modal.close();openExample(p.id);};grid.append(card);});
-modal.append(grid);document.body.append(modal);button.onclick=()=>modal.showModal();if(new URLSearchParams(location.search).get('example')==='all')queueMicrotask(()=>button.click());
-}

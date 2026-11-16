@@ -1,4 +1,4 @@
-import {photoUrl,photoSamples,initPhotoGallery} from './photo-samples.js';
+import {photoUrl,photoSamples} from './photo-samples.js';
 import {adScenes,recommendScene,resolveScene} from './ad-scenes.js';
 import {makeCopy,makeEml,mailtoDraft} from './ad-utils.js';
 export function initAdMode({getProduct,captureProduct,selectProduct,getCatalog}){
@@ -19,8 +19,8 @@ async function loadExample(id=getProduct().id){try{selectProduct(id);open.click(
 example.textContent='ภาพสมจริงของสินค้านี้';example.onclick=()=>loadExample();
 q('#ad-example-product').onchange=e=>loadExample(e.target.value);
 window.furnitureLab.openPhotoExample=loadExample;
-initPhotoGallery({catalog:getCatalog(),openExample:loadExample});
-const requestedExample=new URLSearchParams(location.search).get('example');if(photoSamples[requestedExample])queueMicrotask(()=>loadExample(requestedExample));
+
+const requestedExample=new URLSearchParams(location.search).get('example');if(photoSamples[requestedExample])queueMicrotask(()=>loadExample(requestedExample));else if(requestedExample==='all')queueMicrotask(()=>loadExample(getProduct().id));
 
 
 function invalidateImage(){dirty=true;downloadable(false);}

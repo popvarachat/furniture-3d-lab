@@ -30,10 +30,7 @@ const data=await ev("document.getElementById('ad-poster').toDataURL('image/png')
 }
 if(hashes.size!==6)throw Error('Images not unique');console.log('ALL_SIX_PHOTOS',JSON.stringify(photos));
 await ev("window.furnitureLab.show('rect1100');document.getElementById('ad-example').click()");for(let i=0;i<60;i++){if(await ev("!document.getElementById('ad-png').disabled"))break;await delay(100);}if(await ev("document.body.dataset.model")!=='rect1100')throw Error('Current-product example regressed');
-await ev("document.getElementById('ad-close').click();document.getElementById('photo-gallery-open').click()");
-const gallery=await ev("(async()=>{const imgs=[...document.querySelectorAll('#photo-gallery img')];await Promise.all(imgs.map(i=>i.decode()));return {open:document.getElementById('photo-gallery').open,count:imgs.length,loaded:imgs.every(i=>i.naturalWidth>0)};})()");if(!gallery.loaded||gallery.count!==6)throw Error(JSON.stringify(gallery));
-const galleryShot=await send('Page.captureScreenshot',{format:'png'});fs.writeFileSync('qa-gallery-six.png',Buffer.from(galleryShot.data,'base64'));console.log('GALLERY',JSON.stringify(gallery));
-await ev("document.querySelector('#photo-gallery [data-product=luggage]').click()");for(let i=0;i<60;i++){if(await ev("!document.getElementById('ad-png').disabled"))break;await delay(100);}if(await ev("document.body.dataset.model")!=='luggage')throw Error('Gallery card failed');
+if(await ev("!!document.getElementById('photo-gallery-open')||!!document.getElementById('photo-gallery')"))throw Error('Unexpected all-product gallery');console.log('SINGLE_PRODUCT_MODE',true);
 console.log('FINAL_ERRORS',await ev("window.furnitureLab.getErrors()"));
 
 await send('Browser.close').catch(()=>{});process.exit(0);
