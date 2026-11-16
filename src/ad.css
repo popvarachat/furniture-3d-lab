@@ -3,3 +3,5 @@
 .ad-layout select{font:inherit;border:1px solid #d5ddce;border-radius:7px;padding:10px;width:100%;background:white;color:#233a30}#ad-scene-note{margin:0}
 
 #ad-upload-label[hidden]{display:none}
+
+#photo-gallery{width:min(1200px,96vw);max-height:94vh;padding:0;border:1px solid #dce1d6;border-radius:16px;background:#faf9f6;color:#223a30;overflow:auto}.photo-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:24px}.photo-card{text-align:left;padding:0;overflow:hidden;border-radius:10px}.photo-card img{display:block;width:100%;aspect-ratio:3/2;object-fit:contain;background:#e7e6df}.photo-card b,.photo-card small,.photo-card span{display:block;margin:12px 14px}.photo-card b{font-size:15px}.photo-card small{font-size:10px;color:#77826e}.photo-card span{font-size:11px;color:#2f563a}@media(max-width:900px){.photo-gallery-grid{grid-template-columns:repeat(2,1fr)}header .badge{display:none}}@media(max-width:600px){.photo-gallery-grid{grid-template-columns:1fr}header{flex-wrap:wrap;height:auto;min-height:76px;gap:6px;padding:10px}.ad-open{font-size:9px;margin-left:4px}}
